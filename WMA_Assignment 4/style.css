@@ -1,0 +1,269 @@
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ #main_signup,#main_login{
+     background: whitesmoke; width: 40%;  height: 80vh; border: 2px groove #e7e7e7;
+    display: flex; flex-direction: column; align-items: center;
+    text-transform: capitalize; padding: 0 2% 0 2%;border-radius:15px;
+    margin:5% auto;
+}
+#login_form{
+    width:100%; height: inherit;
+    display: grid; grid-template-columns: repeat(1,100%); place-content: space-around start;
+}
+#main_signup  h1,#main_login h1{
+font-size:50px;text-decoration:underline wavy;
+}
+#signup_form{
+    width:100%; height: inherit;
+    display: grid;grid-gap:2%;  grid-template-columns: repeat(2,1fr);place-content: space-around start;
+}
+#signup_form input[type="text"],input[type="email"],#login_form input[type="password"],input[type="email"]{
+    grid-column: 1/3;
+}
+#signup_form input[type="text"],input[type="email"],input[type="password"],#login_form input[type="text"],input[type="email"],input[type="password"]{
+    background: none;font-weight: bold;
+    border-radius:10px;border: 3px double #d7d7d7;
+    height: 50px;padding: 0 0 0 5%;outline: none;
+}
+#signup_form input[type="password"]{
+    padding: 0 0 0 10%;
+}
+#signup_form input:focus,#login_form input:focus{
+    border: 3px groove #d1d1d1;
+}
+
+#signup_btn,#login_btn{
+    grid-column:1/3;background: #0171d3;height: 50px;
+    border-radius:10px;border: 3px double whitesmoke ;
+    padding: 0 0 0 5%;  margin:0 5% 0 5%;width: auto;
+    outline: none;text-transform: capitalize;
+    color: white;font-weight:bold; text-align:center;
+    transition: all .1s linear .01s;
+}
+#signup_btn:active,#login_btn:active{
+    margin:0;font-size: x-large;font-weight: bolder;
+    border: 3px solid whitesmoke ;
+} 
+
+
+#container{
+    /* display: none; */
+    display: grid;grid-gap:2%;  grid-template-rows: repeat(4,auto);
+    width: 100%; height: 100vh;
+}
+#heading{
+    display: flex;align-items: center;justify-content: space-around;
+}
+#container div >h1{
+   text-align: center;text-transform: capitalize;color: #0077ff;padding: auto;font-size:50px;
+   /* background: yellow; */
+   width: 100%;
+}
+#container div:nth-child(1) > button{
+    border:none;outline: none; border-radius:5px;width: 50px;height:50%;margin: 0 2% 0 0; background: whitesmoke;transition:all .1s linear .01s;color:#0171d3;
+}
+#container div:nth-child(1) > button:active{
+    color: #0077ff;font-size:20px; background: none;
+}
+#expense_print{
+    display: flex;justify-content: space-around;align-items: center;
+    width: 25%;
+    /* background: red; */
+}
+#expense_print button{
+    width:auto; height: 30px; border-radius: 5px; text-transform: capitalize;
+    border: none;outline: none; color: white;transition: all .1s linear .01s;
+}
+
+#expense_print button:nth-child(1){
+    background: #0171d3;padding: 0 3% 0 3%;
+}
+/* #expense_print button:nth-child(2){
+    background: #1a8648;padding: 0 5% 0 5%;
+} */
+#expense_print button:active{
+    padding:0 8% 0 8%;
+}
+
+#container_table{
+    /* background: red; */
+    display: flex;  justify-content: space-between; flex-direction: column;
+    width: 100%;height: 80vh;
+}
+#container_table div {
+    overflow: auto;
+}
+table{
+    /* border: 2px solid red; */
+    text-align: center;
+}
+table tr>th{
+    background: rgb(231, 231, 231);
+    width: 5%;font-size: 20px;height: 30px;
+}
+table tr td{
+    border:3px double whitesmoke;
+}
+table tr>td button{
+    border:none;outline: none;margin: 5%; border-radius:5px;width: 50px;
+}
+table tr >td button:nth-child(1){
+    background:#0071ff url(./update.png) no-repeat center;background-size:20px; 
+    color: white;height: 25px;transition:all .05s linear .01s;
+}
+table tr >td button:nth-child(2){
+    background: url(./delete.png) #f75b44 no-repeat center;background-size:20px;
+    color: white;height: 25px; transition:all .05s linear .01s;
+}
+table tr>td button:active{
+    background-size:25px;  
+}
+#container_table >span{
+    display: flex;justify-content: space-between; align-items: center; width: 60%;padding:0 5%  ;
+}
+#container_table >span p{
+   text-transform: uppercase;font-weight: bolder;   
+}
+
+/* hidden popup */
+
+#popup{
+    width: 50%;height:auto;border:5px double rgb(228, 226, 226);border-radius: 5px;
+    position: fixed;top:50%;left:50%;transform: translate(-50%,-50%);
+    transition:all .5s linear .1s;
+    opacity:0;z-index: -1;
+    /* opacity:1; */
+}
+
+
+
+#popup span:nth-child(1){
+    background: #0074ff;color: white; padding:5%;text-transform: capitalize;
+    display: flex; justify-content: space-between; align-items: center;
+}
+#popup span:nth-child(1)>button:nth-child(2){
+    background: none;outline: none;border: none;color:white; width: 20px;height: 20px;
+}
+#popup span:nth-child(1)>button:nth-child(2):active{
+    font-size: 15px;color: black;
+}
+#popup span:nth-child(3){
+   background: none;
+   display: flex;justify-content: center;align-items: center;
+   padding: 5%
+}
+#popup span:nth-child(3)>h3{
+color:red;overflow: auto;
+}
+#save,#update{
+    background: #0074ff ;color:white;border:none ;outline: none;transition: all .05s ease .01s;
+    width: 18%;height: 30px;border-radius: 5px;text-transform: capitalize; 
+}
+#popup span:nth-child(3)>button:nth-child(2){
+    display: none;
+}
+#save:active,#update:active{
+    border:3px double white;font-size:15px;font-weight:bolder;
+}
+#popup div{
+    height: 80%; display: flex; justify-content: space-between; align-items: center; flex-direction: column;
+}
+#popup div input,textarea{
+    width: 80%;height: 50px; margin: 5%;padding: 0 5% 0 5%;border-radius:10px;background: whitesmoke;
+    outline: none; border: 3px double #d7d7d7;font-size: 20px;font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsiveness */
+
+@media all and (min-width: 280px) and (max-width: 767px){
+    /* signup & login form */
+    #main_signup,#main_login{
+    width: 100%; height: 100vh; padding: 0;margin: 0;
+   }
+   #signup_form{
+    width:100%; height: inherit;
+    display: grid;grid-gap:2%;  grid-template-columns: repeat(1,100%);place-content: space-around start;
+}
+#signup_form input[type="password"],input[type="text"],input[type="email"],#login_form input[type="password"],input[type="email"]{
+    grid-column:1/2;  margin: 0 2% 0 2% ;font-size:15px; 
+}
+#signup_form input[type="text"]{
+    margin: 0 4% 0 2%; 
+}
+#signup_form input[type="text"],input[type="email"],input[type="password"],#login_form input[type="text"],input[type="email"],input[type="password"]{
+   padding: 0 0 0 5% !important;
+}
+#signup_btn,#login_btn{
+    grid-column:1/2;
+}
+
+/* Dashboard */
+#container{
+    width: 100vw; height: 100vh;
+}
+#container div >h1{
+ padding: 1%;font-size:25px;
+ }
+ #expense_print{
+    width: 50%;
+}
+#expense_print button{
+   height: 25px; 
+}
+#expense_print button:active{
+    padding:0 8% 0 8%;
+}
+table tr>th{
+    width: 5%;font-size: 15px;height: 30px;
+}
+
+/* Hidden popup */
+#popup{
+    width: 100%;height:100vh;  background-image: linear-gradient(to bottom,rgba(0, 116, 255,.6),rgba(255, 255, 255,.1));
+}
+    #popup span:nth-child(3)>button:nth-child(2){
+        width: 20%;
+    }
+    #popup div{
+        height: 70%; justify-content: space-evenly; 
+    }
+    #popup div input,textarea{
+        height: 60px; padding:  5%; font-size: 15px;
+    }
+    #popup div input:hover,textarea:hover{
+        border: 3px solid #cfcfcf;
+    }
+    #popup span:nth-child(3)>button:nth-child(3){
+        width: 25%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
